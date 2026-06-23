@@ -44,6 +44,8 @@ https://github.com/imochen/agent-tools-hub/issues/new?template=tool-submission.y
 
 如果仓库还没有 `tool-submission` 标签，GitHub 可能不会自动给新 issue 打标。workflow 也会识别工具提交模板里的标题和字段，但建议维护者在仓库中创建 `tool-submission` 和 `automated` 两个标签。
 
+自动生成 PR 需要仓库允许 GitHub Actions 创建 pull request。维护者配置见 `docs/deployment.md`。
+
 ## 新增工具
 
 编辑 `data/skills.json`。

@@ -20,3 +20,22 @@
 ## 提交入口
 
 用户提交工具通过 GitHub Issue Form 完成，不需要 Cloudflare token、数据库或自建提交后端。
+
+## 自动生成 PR
+
+`Analyze tool submission` workflow 会从 `tool-submission` issue 生成候选 PR。
+
+仓库需要打开 GitHub Actions 的 PR 写入权限：
+
+1. 进入仓库 Settings。
+2. 打开 Actions -> General。
+3. 在 Workflow permissions 中选择 `Read and write permissions`。
+4. 勾选 `Allow GitHub Actions to create and approve pull requests`。
+
+如果不想使用默认 `GITHUB_TOKEN`，可以创建一个 fine-grained personal access token，并保存为仓库 secret：
+
+```text
+SUBMISSION_BOT_TOKEN
+```
+
+该 token 至少需要对当前仓库具备 Contents 和 Pull requests 的读写权限。workflow 会优先使用 `SUBMISSION_BOT_TOKEN`，没有配置时才回退到 `GITHUB_TOKEN`。
