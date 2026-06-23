@@ -11,6 +11,7 @@ Agent Tools Hub 是一个面向 AI coding agent 的工具导航站，收录 Skil
 - 支持中文标签筛选
 - 支持 GitHub star 徽章和按 star 排序
 - 支持通过 GitHub Issue Form 提交工具
+- 支持从工具提交 issue 自动生成候选 PR
 - 使用简单 JSON 数据模型，方便贡献和维护
 
 ## 本地预览
@@ -38,6 +39,8 @@ https://github.com/imochen/agent-tools-hub/issues/new?template=tool-submission.y
 ```
 
 维护者审核 issue 后，可以按 `AGENTS.md` 的规则把条目加入 `data/skills.json`。这样不需要数据库或自建提交后端。
+
+仓库还包含一个自动分析 workflow：带有 `tool-submission` 标签的 issue 会触发 GitHub Actions，读取 issue 表单内容，分析对应仓库，修改 `data/skills.json` 并自动创建候选 PR。维护者仍需要人工审核后合并。
 
 ## 新增工具
 

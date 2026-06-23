@@ -1,0 +1,65 @@
+name: Analyze tool submission
+
+on:
+  issues:
+    types:
+      - opened
+      - edited
+      - labeled
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  models: read
+
+jobs:
+  analyze:
+    if: contains(github.event.issue.labels.*.name, 'tool-submission')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Analyze submitted repository
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: node scripts/analyze-submission.mjs
+
+      - name: Validate project
+        run: npm run validate
+
+      - name: Create pull request
+        id: cpr
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Add tool from issue #${{ github.event.issue.number }}"
+          branch: "tool-submission/issue-${{ github.event.issue.number }}"
+          delete-branch: true
+          title: "Add tool from issue #${{ github.event.issue.number }}"
+          body: |
+            Generated from #${{ github.event.issue.number }}.
+
+            Please review the classification, description, tags, and repository safety before merging.
+          labels: |
+            tool-submission
+            automated
+          add-paths: |
+            data/skills.json
+
+      - name: Comment with pull request
+        if: steps.cpr.outputs.pull-request-url != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          PR_URL: ${{ steps.cpr.outputs.pull-request-url }}
+        run: gh issue comment "$ISSUE_NUMBER" --body "已根据提交内容生成 PR：$PR_URL"

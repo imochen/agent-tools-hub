@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "python3 -m http.server 4322",
-    "validate": "python3 -m json.tool data/skills.json > /dev/null && node --check assets/app.js && node scripts/validate.mjs"
+    "validate": "python3 -m json.tool data/skills.json > /dev/null && node --check assets/app.js && node --check scripts/analyze-submission.mjs && node scripts/validate.mjs"
   },
   "license": "MIT"
 }
