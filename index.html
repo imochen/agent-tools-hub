@@ -32,13 +32,13 @@
     <link rel="stylesheet" href="./assets/styles.css" />
   </head>
   <body class="min-h-screen bg-ink text-slate-50 antialiased">
-    <div class="mx-auto flex min-h-screen w-full max-w-7xl flex-col px-4 py-3 sm:px-6 lg:px-8">
-      <main class="flex-1 pb-10 pt-3">
+    <div class="mx-auto flex min-h-screen w-full max-w-7xl flex-col overflow-x-hidden px-4 py-3 sm:px-6 lg:px-8">
+      <main class="min-w-0 flex-1 pb-10 pt-3">
         <section>
           <div class="mb-4 flex flex-col gap-4">
-            <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <a href="/" class="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-run focus:ring-offset-2 focus:ring-offset-ink">
-                <span class="flex h-9 w-9 items-center justify-center rounded-md bg-run text-ink">
+            <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+              <a href="/" class="flex min-w-0 items-center gap-3 focus:outline-none focus:ring-2 focus:ring-run focus:ring-offset-2 focus:ring-offset-ink">
+                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-run text-ink">
                   <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M4 7h16" />
                     <path d="M4 12h10" />
@@ -46,16 +46,16 @@
                     <path d="m17 14 3 3-3 3" />
                   </svg>
                 </span>
-                <span>
-                  <span class="block text-2xl font-semibold leading-7 text-white">Agent Tools Hub</span>
+                <span class="min-w-0">
+                  <span class="block truncate text-2xl font-semibold leading-7 text-white sm:text-3xl">Agent Tools Hub</span>
                 </span>
               </a>
-              <div class="flex items-center gap-2">
+              <div class="grid grid-cols-2 gap-2 sm:flex sm:items-center">
                 <a
                   href="https://github.com/imochen/agent-tools-hub/issues/new?template=tool-submission.yml"
                   target="_blank"
                   rel="noreferrer"
-                  class="inline-flex h-10 items-center gap-2 rounded-md bg-run px-3 text-sm font-semibold text-ink transition-colors duration-200 hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-run focus:ring-offset-2 focus:ring-offset-ink"
+                  class="inline-flex h-10 items-center justify-center gap-2 rounded-md bg-run px-3 text-sm font-semibold text-ink transition-colors duration-200 hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-run focus:ring-offset-2 focus:ring-offset-ink"
                 >
                   <svg aria-hidden="true" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M12 5v14" />
@@ -67,7 +67,7 @@
                   href="https://github.com/imochen/agent-tools-hub"
                   target="_blank"
                   rel="noreferrer"
-                  class="inline-flex h-10 items-center gap-2 rounded-md border border-white/10 px-3 text-sm font-medium text-slate-200 transition-colors duration-200 hover:border-run/50 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-run focus:ring-offset-2 focus:ring-offset-ink"
+                  class="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-white/10 px-3 text-sm font-medium text-slate-200 transition-colors duration-200 hover:border-run/50 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-run focus:ring-offset-2 focus:ring-offset-ink"
                 >
                   <svg aria-hidden="true" viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor">
                     <path
@@ -80,9 +80,9 @@
                 </a>
               </div>
             </div>
-            <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <div id="typeFilters" class="-m-1 flex max-w-full gap-3 overflow-x-auto p-1"></div>
-              <div id="sortMenu" class="relative sm:ml-auto sm:w-[250px] sm:shrink-0">
+            <div class="flex min-w-0 flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
+              <div id="typeFilters" class="-m-1 flex min-w-0 flex-wrap gap-2 p-1"></div>
+              <div id="sortMenu" class="relative w-full lg:ml-auto lg:w-[250px] lg:shrink-0">
                 <button
                   id="sortButton"
                   type="button"

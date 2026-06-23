@@ -104,7 +104,7 @@ function renderTypes() {
     button.type = "button";
     button.textContent = type === "all" ? "全部类型" : type;
     button.className = [
-      "h-10 shrink-0 cursor-pointer rounded-md border px-4 font-mono text-sm font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-run focus:ring-offset-2 focus:ring-offset-ink",
+      "h-10 cursor-pointer rounded-md border px-3 font-mono text-sm font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-run focus:ring-offset-2 focus:ring-offset-ink sm:px-4",
       state.type === type
         ? "border-run bg-run text-ink"
         : "border-white/10 bg-white/[0.04] text-slate-300 hover:border-run/50 hover:bg-white/10",
