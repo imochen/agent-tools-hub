@@ -174,5 +174,24 @@
     ],
     "url": "https://github.com/helloianneo/ian-xiaohei-illustrations",
     "featured": 9
+  },
+  {
+    "name": "Xquik",
+    "owner": "Xquik-dev",
+    "repo": "x-twitter-scraper",
+    "type": "MCP Server",
+    "surfaces": [
+      "MCP Server",
+      "API",
+      "Skill"
+    ],
+    "description": "面向 agent 的 X/Twitter 数据与自动化工具，提供搜索、趋势、监控、webhook 和 MCP 接入。",
+    "tags": [
+      "X",
+      "社媒",
+      "MCP"
+    ],
+    "url": "https://github.com/Xquik-dev/x-twitter-scraper",
+    "featured": 10
   }
 ]
