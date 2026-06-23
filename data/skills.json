@@ -142,6 +142,40 @@
     "featured": 7
   },
   {
+    "name": "zu-article-image-skill",
+    "owner": "wwenj",
+    "repo": "zu-article-image-skill",
+    "type": "Skill",
+    "surfaces": [
+      "Skill"
+    ],
+    "description": "为 Markdown 文章自动生成并插入语义配图的技能。",
+    "tags": [
+      "Markdown",
+      "配图",
+      "AI"
+    ],
+    "url": "https://github.com/wwenj/zu-article-image-skill",
+    "featured": 8
+  },
+  {
+    "name": "Ian Xiaohei Illustrations",
+    "owner": "helloianneo",
+    "repo": "ian-xiaohei-illustrations",
+    "type": "Skill",
+    "surfaces": [
+      "Skill"
+    ],
+    "description": "为中文文章生成独特风格的手绘正文配图。",
+    "tags": [
+      "中文配图",
+      "手绘风格",
+      "AI生成"
+    ],
+    "url": "https://github.com/helloianneo/ian-xiaohei-illustrations",
+    "featured": 9
+  },
+  {
     "name": "Xquik",
     "owner": "Xquik-dev",
     "repo": "x-twitter-scraper",
@@ -158,6 +192,6 @@
       "MCP"
     ],
     "url": "https://github.com/Xquik-dev/x-twitter-scraper",
-    "featured": 8
+    "featured": 10
   }
 ]

@@ -47,7 +47,7 @@ jobs:
           delete-branch: true
           title: "Add tool from issue #${{ github.event.issue.number }}"
           body: |
-            Generated from #${{ github.event.issue.number }}.
+            Closes #${{ github.event.issue.number }}.
 
             Please review the classification, description, tags, and repository safety before merging.
           labels: |
