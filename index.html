@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agent Tools Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["IBM Plex Sans", "ui-sans-serif", "system-ui"],
+              mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular"],
+            },
+            colors: {
+              ink: "#0F172A",
+              panel: "#111827",
+              line: "#273449",
+              run: "#22C55E",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body class="min-h-screen bg-ink text-slate-50 antialiased">
+    <div class="mx-auto flex min-h-screen w-full max-w-7xl flex-col px-4 py-3 sm:px-6 lg:px-8">
+      <main class="flex-1 pb-10 pt-3">
+        <section>
+          <div class="mb-4 flex flex-col gap-4">
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <a href="#" class="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-run focus:ring-offset-2 focus:ring-offset-ink">
+                <span class="flex h-9 w-9 items-center justify-center rounded-md bg-run text-ink">
+                  <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 7h16" />
+                    <path d="M4 12h10" />
+                    <path d="M4 17h7" />
+                    <path d="m17 14 3 3-3 3" />
+                  </svg>
+                </span>
+                <span>
+                  <span class="block text-2xl font-semibold leading-7 text-white">Agent Tools Hub</span>
+                </span>
+              </a>
+              <div class="flex items-center gap-2">
+                <button
+                  id="openSubmitButton"
+                  type="button"
+                  hidden
+                  class="hidden h-10 cursor-pointer items-center gap-2 rounded-md bg-run px-3 text-sm font-semibold text-ink transition-colors duration-200 hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-run focus:ring-offset-2 focus:ring-offset-ink"
+                >
+                  <svg aria-hidden="true" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14" />
+                    <path d="M5 12h14" />
+                  </svg>
+                  提交
+                </button>
+                <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  class="inline-flex h-10 items-center gap-2 rounded-md border border-white/10 px-3 text-sm font-medium text-slate-200 transition-colors duration-200 hover:border-run/50 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-run focus:ring-offset-2 focus:ring-offset-ink"
+                >
+                  <svg aria-hidden="true" viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.92 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1-.32 3.3 1.23A11.48 11.48 0 0 1 12 4.78c1.02 0 2.05.14 3.01.4 2.3-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.6-2.81 5.62-5.49 5.91.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"
+                    />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div id="typeFilters" class="-m-1 flex max-w-full gap-3 overflow-x-auto p-1"></div>
+              <div id="sortMenu" class="relative sm:ml-auto sm:w-[250px] sm:shrink-0">
+                <button
+                  id="sortButton"
+                  type="button"
+                  class="flex h-10 w-full cursor-pointer items-center justify-between rounded-md border border-white/10 bg-panel px-3 text-left text-sm font-medium text-slate-200 transition-colors duration-200 hover:border-run/50 hover:bg-white/[0.04] focus:outline-none focus:ring-2 focus:ring-run focus:ring-offset-2 focus:ring-offset-ink"
+                  aria-haspopup="listbox"
+                  aria-expanded="false"
+                >
+                  <span id="sortButtonLabel">默认排序</span>
+                  <svg aria-hidden="true" viewBox="0 0 24 24" class="h-4 w-4 text-slate-300" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </button>
+                <div
+                  id="sortOptions"
+                  class="absolute right-0 z-30 mt-2 hidden w-full overflow-hidden rounded-md border border-white/10 bg-panel p-1 shadow-2xl shadow-black/30"
+                  role="listbox"
+                ></div>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="flex items-center gap-3">
+                <span class="font-mono text-xs font-semibold uppercase text-slate-500">标签</span>
+              </div>
+              <div id="tagFilters" class="-m-1 flex flex-wrap gap-2 p-1"></div>
+            </div>
+          </div>
+
+          <div id="cardsGrid" class="grid gap-4 md:grid-cols-2 xl:grid-cols-3"></div>
+
+          <div id="emptyState" class="hidden rounded-lg border border-dashed border-white/15 bg-white/[0.04] p-8 text-center">
+            <p class="text-lg font-semibold text-white">没有匹配的工具</p>
+            <p class="mt-2 text-sm text-slate-400">调整类型或标签筛选。</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="submitDialog" class="w-[min(92vw,620px)] rounded-lg border border-white/10 bg-panel p-0 text-slate-50 shadow-2xl backdrop:bg-ink/80">
+      <form id="submitForm" class="p-5">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h2 class="text-xl font-semibold text-white">提交工具</h2>
+            <p class="mt-1 text-sm text-slate-400">工具提交</p>
+          </div>
+          <button
+            id="closeSubmitButton"
+            type="button"
+            class="flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border border-white/10 text-slate-300 transition-colors duration-200 hover:border-run/50 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-run"
+            aria-label="关闭"
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="mt-5 grid gap-4">
+          <label class="grid gap-2 text-sm font-medium text-slate-200">
+            名称
+            <input name="name" required class="h-11 rounded-md border border-white/10 bg-white/[0.06] px-3 text-white outline-none focus:border-run focus:ring-2 focus:ring-run/30" />
+          </label>
+          <label class="grid gap-2 text-sm font-medium text-slate-200">
+            GitHub 地址
+            <input name="url" type="url" required placeholder="https://github.com/owner/repo" class="h-11 rounded-md border border-white/10 bg-white/[0.06] px-3 text-white outline-none placeholder:text-slate-500 focus:border-run focus:ring-2 focus:ring-run/30" />
+          </label>
+          <label class="grid gap-2 text-sm font-medium text-slate-200">
+            类型
+            <select name="type" class="h-11 rounded-md border border-white/10 bg-white/[0.06] px-3 text-white outline-none focus:border-run focus:ring-2 focus:ring-run/30">
+              <option>Skill</option>
+              <option>MCP Server</option>
+              <option>Plugin</option>
+              <option>Prompt</option>
+              <option>Workflow</option>
+              <option>Browser Tool</option>
+              <option>Dev Tool</option>
+            </select>
+          </label>
+          <label class="grid gap-2 text-sm font-medium text-slate-200">
+            简介
+            <textarea name="description" required rows="3" class="resize-none rounded-md border border-white/10 bg-white/[0.06] px-3 py-2 text-white outline-none focus:border-run focus:ring-2 focus:ring-run/30"></textarea>
+          </label>
+          <label class="grid gap-2 text-sm font-medium text-slate-200">
+            标签
+            <input name="tags" placeholder="code, mcp, design" class="h-11 rounded-md border border-white/10 bg-white/[0.06] px-3 font-mono text-white outline-none placeholder:text-slate-500 focus:border-run focus:ring-2 focus:ring-run/30" />
+          </label>
+        </div>
+
+        <div class="mt-5 grid gap-3 sm:grid-cols-2">
+          <button
+            type="submit"
+            class="inline-flex h-11 cursor-pointer items-center justify-center rounded-md bg-run px-4 text-sm font-semibold text-ink transition-colors duration-200 hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-run focus:ring-offset-2 focus:ring-offset-panel"
+          >
+            生成
+          </button>
+          <button
+            id="copySubmissionButton"
+            type="button"
+            class="inline-flex h-11 cursor-pointer items-center justify-center rounded-md border border-white/10 px-4 text-sm font-semibold text-slate-200 transition-colors duration-200 hover:border-run/50 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-run focus:ring-offset-2 focus:ring-offset-panel"
+          >
+            复制
+          </button>
+        </div>
+
+        <textarea
+          id="submissionOutput"
+          readonly
+          rows="7"
+          class="mt-4 w-full rounded-md border border-white/10 bg-ink px-3 py-2 font-mono text-xs text-slate-300 outline-none"
+          placeholder="提交 JSON"
+        ></textarea>
+      </form>
+    </dialog>
+
+    <template id="cardTemplate">
+      <article
+        class="group flex min-h-[280px] flex-col rounded-lg border border-white/10 bg-panel/80 p-5 shadow-lg shadow-black/10 transition-colors duration-200 hover:border-run/50 hover:bg-slate-800/90"
+      >
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <p data-field="owner" class="font-mono text-xs text-slate-400"></p>
+            <div class="mt-2 flex flex-wrap items-center gap-2">
+              <h3 data-field="name" class="text-xl font-semibold text-white"></h3>
+              <span data-field="type" class="rounded border border-run/30 bg-run/10 px-2 py-1 font-mono text-[11px] font-semibold uppercase text-run"></span>
+            </div>
+          </div>
+          <div class="flex flex-col items-end gap-1">
+            <a
+              data-field="starsBadgeLink"
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex h-8 cursor-pointer items-center rounded-md border border-white/10 bg-white/[0.04] px-2 transition-colors duration-200 hover:border-run/50 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-run focus:ring-offset-2 focus:ring-offset-panel"
+              title="GitHub stars"
+            >
+              <img data-field="starsBadge" class="h-5" alt="" loading="lazy" />
+            </a>
+            <span data-field="starsText" class="font-mono text-[11px] text-slate-500"></span>
+          </div>
+        </div>
+
+        <p data-field="description" class="mt-4 flex-1 text-sm leading-6 text-slate-300"></p>
+
+        <p data-field="surfaces" class="mt-4 font-mono text-xs text-slate-500"></p>
+
+        <div data-field="tags" class="mt-5 flex flex-wrap gap-2"></div>
+
+        <div class="mt-6 grid grid-cols-2 gap-2">
+          <a
+            data-field="github"
+            target="_blank"
+            rel="noreferrer"
+            class="inline-flex h-10 cursor-pointer items-center justify-center gap-2 rounded-md bg-run px-3 text-sm font-semibold text-ink transition-colors duration-200 hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-run focus:ring-offset-2 focus:ring-offset-panel"
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.92 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1-.32 3.3 1.23A11.48 11.48 0 0 1 12 4.78c1.02 0 2.05.14 3.01.4 2.3-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.6-2.81 5.62-5.49 5.91.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"
+              />
+            </svg>
+            GitHub
+          </a>
+          <button
+            data-action="copy"
+            type="button"
+            class="inline-flex h-10 cursor-pointer items-center justify-center gap-2 rounded-md border border-white/10 px-3 text-sm font-semibold text-slate-200 transition-colors duration-200 hover:border-run/50 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-run focus:ring-offset-2 focus:ring-offset-panel"
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="11" height="11" rx="2" />
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+            </svg>
+            复制链接
+          </button>
+        </div>
+      </article>
+    </template>
+
+    <script src="./assets/app.js"></script>
+  </body>
+</html>

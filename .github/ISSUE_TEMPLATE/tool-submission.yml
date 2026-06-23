@@ -1,0 +1,33 @@
+name: Tool submission
+description: Suggest a tool for Agent Tools Hub
+title: "Add tool: "
+labels: ["tool-submission"]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: GitHub URL
+      placeholder: https://github.com/owner/repo
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Primary type
+      options:
+        - Skill
+        - MCP Server
+        - Plugin
+        - Prompt
+        - Workflow
+        - Browser Tool
+        - Dev Tool
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Explain the real usage forms, mixed surfaces, or why it belongs here.
+    validations:
+      required: false
