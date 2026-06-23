@@ -15,12 +15,6 @@ const sortButton = document.querySelector("#sortButton");
 const sortButtonLabel = document.querySelector("#sortButtonLabel");
 const sortOptions = document.querySelector("#sortOptions");
 const cardTemplate = document.querySelector("#cardTemplate");
-const submitDialog = document.querySelector("#submitDialog");
-const openSubmitButton = document.querySelector("#openSubmitButton");
-const closeSubmitButton = document.querySelector("#closeSubmitButton");
-const submitForm = document.querySelector("#submitForm");
-const submissionOutput = document.querySelector("#submissionOutput");
-const copySubmissionButton = document.querySelector("#copySubmissionButton");
 
 const sortChoices = [
   { value: "featured", label: "默认排序" },
@@ -283,40 +277,6 @@ async function loadStars() {
   renderCards();
 }
 
-function parseGithubUrl(url) {
-  try {
-    const parsed = new URL(url);
-    const [owner, repo] = parsed.pathname.replace(/^\/|\/$/g, "").split("/");
-    return { owner: owner || "", repo: repo || "" };
-  } catch {
-    return { owner: "", repo: "" };
-  }
-}
-
-function generateSubmission(formData) {
-  const url = formData.get("url").trim();
-  const { owner, repo } = parseGithubUrl(url);
-  const tags = formData
-    .get("tags")
-    .split(",")
-    .map((tag) => tag.trim())
-    .filter(Boolean);
-
-  return JSON.stringify(
-    {
-      name: formData.get("name").trim(),
-      owner,
-      repo,
-      type: formData.get("type"),
-      description: formData.get("description").trim(),
-      tags,
-      url,
-    },
-    null,
-    2,
-  );
-}
-
 sortButton.addEventListener("click", toggleSortMenu);
 
 document.addEventListener("click", (event) => {
@@ -325,47 +285,6 @@ document.addEventListener("click", (event) => {
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeSortMenu();
-});
-
-if (openSubmitButton) {
-  openSubmitButton.addEventListener("click", () => {
-    submitDialog.showModal();
-  });
-}
-
-closeSubmitButton.addEventListener("click", () => {
-  submitDialog.close();
-});
-
-submitForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  submissionOutput.value = generateSubmission(new FormData(submitForm));
-});
-
-submitForm.addEventListener("submit", async () => {
-  try {
-    const response = await fetch("/api/submit", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: submissionOutput.value,
-    });
-    if (!response.ok) return;
-    const data = await response.json();
-    if (data.url) submissionOutput.value = data.url;
-  } catch {
-    // Static preview keeps the generated JSON as the submission artifact.
-  }
-});
-
-copySubmissionButton.addEventListener("click", async () => {
-  if (!submissionOutput.value) {
-    submissionOutput.value = generateSubmission(new FormData(submitForm));
-  }
-  await navigator.clipboard.writeText(submissionOutput.value);
-  copySubmissionButton.textContent = "已复制";
-  window.setTimeout(() => {
-    copySubmissionButton.textContent = "复制";
-  }, 1200);
 });
 
 loadSkills().catch(() => {

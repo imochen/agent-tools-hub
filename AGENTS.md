@@ -72,13 +72,13 @@
 每次修改 `data/skills.json` 后运行：
 
 ```bash
-python3 -m json.tool skill-navigator/data/skills.json
+python3 -m json.tool data/skills.json
 ```
 
 如果改了脚本，运行：
 
 ```bash
-node --check skill-navigator/assets/app.js
+node --check assets/app.js
 ```
 
 如果本地服务已启动，检查：
@@ -87,12 +87,12 @@ node --check skill-navigator/assets/app.js
 curl -I http://127.0.0.1:4322/
 ```
 
-本地预览项目根目录是 `skill-navigator`。Cloudflare Pages 发布时可把该目录作为项目根目录，静态输出目录为 `/`。
+本地预览和 Cloudflare Pages 发布都以仓库根目录为项目根目录，静态输出目录为 `/`。
 
 ## UI 约束
 
 - 页面保持目录工具感，避免解释型大段文案。
 - 顶部保持紧凑。
 - 不恢复搜索框，除非用户明确要求。
-- 提交功能目前隐藏，相关弹窗和 `functions/api/submit.js` 可保留。
-- 卡片内只显示主类型徽标、轻量 `Uses:` 元信息和最多 3 个 tags。
+- 用户提交通过 GitHub Issue 模板处理，不在页面内保留隐藏提交表单。
+- 卡片内只显示主类型徽标、轻量 `形态：` 元信息和最多 3 个 tags。

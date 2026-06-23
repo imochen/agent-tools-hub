@@ -10,7 +10,7 @@ Agent Tools Hub 是一个面向 AI coding agent 的工具导航站，收录 Skil
 - 支持按主类型筛选：Skill、MCP Server、Plugin、Workflow 等
 - 支持中文标签筛选
 - 支持 GitHub star 徽章和按 star 排序
-- 预留 Cloudflare Pages Functions 提交接口
+- 支持通过 GitHub Issue Form 提交工具
 - 使用简单 JSON 数据模型，方便贡献和维护
 
 ## 本地预览
@@ -44,12 +44,13 @@ http://127.0.0.1:4322/
 - PR 会自动生成 Preview Deployment
 - PR 合并后 Cloudflare Pages 会自动发布最新版本
 
-项目预留了提交接口：`functions/api/submit.js`。如果未来要启用“用户提交工具后自动创建 GitHub Issue”，需要在 Cloudflare Pages 配置环境变量：
+用户提交工具通过 GitHub Issue Form 完成。页面右上角的“提交工具”会打开仓库里的工具提交模板：
 
-- `GITHUB_TOKEN`：允许创建 issue 的 GitHub token
-- `GITHUB_REPO`：目标仓库，例如 `owner/agent-tools-hub`
+```text
+https://github.com/imochen/agent-tools-hub/issues/new?template=tool-submission.yml
+```
 
-当前页面里的提交入口是隐藏状态。
+维护者审核 issue 后，可以按 `AGENTS.md` 的规则把条目加入 `data/skills.json`。这样不需要 Cloudflare token、数据库或自建提交后端。
 
 ## 新增工具
 
@@ -106,8 +107,6 @@ node scripts/validate.mjs
 │   └── styles.css
 ├── data/
 │   └── skills.json
-├── functions/
-│   └── api/submit.js
 ├── scripts/
 │   └── validate.mjs
 └── AGENTS.md

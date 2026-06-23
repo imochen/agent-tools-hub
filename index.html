@@ -51,18 +51,18 @@
                 </span>
               </a>
               <div class="flex items-center gap-2">
-                <button
-                  id="openSubmitButton"
-                  type="button"
-                  hidden
-                  class="hidden h-10 cursor-pointer items-center gap-2 rounded-md bg-run px-3 text-sm font-semibold text-ink transition-colors duration-200 hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-run focus:ring-offset-2 focus:ring-offset-ink"
+                <a
+                  href="https://github.com/imochen/agent-tools-hub/issues/new?template=tool-submission.yml"
+                  target="_blank"
+                  rel="noreferrer"
+                  class="inline-flex h-10 items-center gap-2 rounded-md bg-run px-3 text-sm font-semibold text-ink transition-colors duration-200 hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-run focus:ring-offset-2 focus:ring-offset-ink"
                 >
                   <svg aria-hidden="true" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M12 5v14" />
                     <path d="M5 12h14" />
                   </svg>
-                  提交
-                </button>
+                  提交工具
+                </a>
                 <a
                   href="https://github.com"
                   target="_blank"
@@ -119,83 +119,6 @@
         </section>
       </main>
     </div>
-
-    <dialog id="submitDialog" class="w-[min(92vw,620px)] rounded-lg border border-white/10 bg-panel p-0 text-slate-50 shadow-2xl backdrop:bg-ink/80">
-      <form id="submitForm" class="p-5">
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <h2 class="text-xl font-semibold text-white">提交工具</h2>
-            <p class="mt-1 text-sm text-slate-400">工具提交</p>
-          </div>
-          <button
-            id="closeSubmitButton"
-            type="button"
-            class="flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border border-white/10 text-slate-300 transition-colors duration-200 hover:border-run/50 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-run"
-            aria-label="关闭"
-          >
-            <svg aria-hidden="true" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 6 6 18" />
-              <path d="m6 6 12 12" />
-            </svg>
-          </button>
-        </div>
-
-        <div class="mt-5 grid gap-4">
-          <label class="grid gap-2 text-sm font-medium text-slate-200">
-            名称
-            <input name="name" required class="h-11 rounded-md border border-white/10 bg-white/[0.06] px-3 text-white outline-none focus:border-run focus:ring-2 focus:ring-run/30" />
-          </label>
-          <label class="grid gap-2 text-sm font-medium text-slate-200">
-            GitHub 地址
-            <input name="url" type="url" required placeholder="https://github.com/owner/repo" class="h-11 rounded-md border border-white/10 bg-white/[0.06] px-3 text-white outline-none placeholder:text-slate-500 focus:border-run focus:ring-2 focus:ring-run/30" />
-          </label>
-          <label class="grid gap-2 text-sm font-medium text-slate-200">
-            类型
-            <select name="type" class="h-11 rounded-md border border-white/10 bg-white/[0.06] px-3 text-white outline-none focus:border-run focus:ring-2 focus:ring-run/30">
-              <option>Skill</option>
-              <option>MCP Server</option>
-              <option>Plugin</option>
-              <option>Prompt</option>
-              <option>Workflow</option>
-              <option>Browser Tool</option>
-              <option>Dev Tool</option>
-            </select>
-          </label>
-          <label class="grid gap-2 text-sm font-medium text-slate-200">
-            简介
-            <textarea name="description" required rows="3" class="resize-none rounded-md border border-white/10 bg-white/[0.06] px-3 py-2 text-white outline-none focus:border-run focus:ring-2 focus:ring-run/30"></textarea>
-          </label>
-          <label class="grid gap-2 text-sm font-medium text-slate-200">
-            标签
-            <input name="tags" placeholder="code, mcp, design" class="h-11 rounded-md border border-white/10 bg-white/[0.06] px-3 font-mono text-white outline-none placeholder:text-slate-500 focus:border-run focus:ring-2 focus:ring-run/30" />
-          </label>
-        </div>
-
-        <div class="mt-5 grid gap-3 sm:grid-cols-2">
-          <button
-            type="submit"
-            class="inline-flex h-11 cursor-pointer items-center justify-center rounded-md bg-run px-4 text-sm font-semibold text-ink transition-colors duration-200 hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-run focus:ring-offset-2 focus:ring-offset-panel"
-          >
-            生成
-          </button>
-          <button
-            id="copySubmissionButton"
-            type="button"
-            class="inline-flex h-11 cursor-pointer items-center justify-center rounded-md border border-white/10 px-4 text-sm font-semibold text-slate-200 transition-colors duration-200 hover:border-run/50 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-run focus:ring-offset-2 focus:ring-offset-panel"
-          >
-            复制
-          </button>
-        </div>
-
-        <textarea
-          id="submissionOutput"
-          readonly
-          rows="7"
-          class="mt-4 w-full rounded-md border border-white/10 bg-ink px-3 py-2 font-mono text-xs text-slate-300 outline-none"
-          placeholder="提交 JSON"
-        ></textarea>
-      </form>
-    </dialog>
 
     <template id="cardTemplate">
       <article
