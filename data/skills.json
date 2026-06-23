@@ -4,9 +4,17 @@
     "owner": "colbymchenry",
     "repo": "codegraph",
     "type": "MCP Server",
-    "surfaces": ["MCP Server", "CLI", "Agent Instructions"],
+    "surfaces": [
+      "MCP Server",
+      "CLI",
+      "Agent Instructions"
+    ],
     "description": "本地代码知识图谱与 MCP Server，可让 agent 通过 codegraph_explore 获取源码上下文、调用路径和影响范围。",
-    "tags": ["代码", "导航", "MCP"],
+    "tags": [
+      "代码",
+      "导航",
+      "MCP"
+    ],
     "url": "https://github.com/colbymchenry/codegraph",
     "featured": 1
   },
@@ -15,9 +23,17 @@
     "owner": "nextlevelbuilder",
     "repo": "ui-ux-pro-max-skill",
     "type": "Skill",
-    "surfaces": ["Skill", "Plugin", "CLI Installer"],
+    "surfaces": [
+      "Skill",
+      "Plugin",
+      "CLI Installer"
+    ],
     "description": "AI UI/UX Skill，提供设计系统生成、风格/配色/字体搜索和多前端技术栈建议。",
-    "tags": ["设计", "UI", "前端"],
+    "tags": [
+      "设计",
+      "UI",
+      "前端"
+    ],
     "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
     "featured": 2
   },
@@ -26,9 +42,19 @@
     "owner": "DietrichGebert",
     "repo": "ponytail",
     "type": "Plugin",
-    "surfaces": ["Plugin", "Skill", "MCP Server", "Agent Instructions", "CLI"],
+    "surfaces": [
+      "Plugin",
+      "Skill",
+      "MCP Server",
+      "Agent Instructions",
+      "CLI"
+    ],
     "description": "跨 agent 的极简工程规则集，让 AI 在写代码前优先复用、少写、跳过不必要实现，并保留安全和可访问性约束。",
-    "tags": ["编码", "极简", "审查"],
+    "tags": [
+      "编码",
+      "极简",
+      "审查"
+    ],
     "url": "https://github.com/DietrichGebert/ponytail",
     "featured": 3
   },
@@ -37,9 +63,21 @@
     "owner": "boin",
     "repo": "oh-my-opencode-slim",
     "type": "Plugin",
-    "surfaces": ["OpenCode Plugin", "Agents", "Hooks", "Tools", "MCP Server", "Skill", "CLI Installer"],
+    "surfaces": [
+      "OpenCode Plugin",
+      "Agents",
+      "Hooks",
+      "Tools",
+      "MCP Server",
+      "Skill",
+      "CLI Installer"
+    ],
     "description": "boin 优化版 OpenCode 编排插件，集成多 agent、hooks、工具、内置 MCP、skills 和 CLI 安装器，用更轻量的方式增强 OpenCode 工作流。",
-    "tags": ["OpenCode", "编排", "多代理"],
+    "tags": [
+      "OpenCode",
+      "编排",
+      "多代理"
+    ],
     "url": "https://github.com/boin/oh-my-opencode-slim",
     "featured": 4
   },
@@ -48,9 +86,20 @@
     "owner": "github",
     "repo": "spec-kit",
     "type": "Workflow",
-    "surfaces": ["CLI", "Workflow", "Agent Commands", "Skill", "Templates", "Presets"],
+    "surfaces": [
+      "CLI",
+      "Workflow",
+      "Agent Commands",
+      "Skill",
+      "Templates",
+      "Presets"
+    ],
     "description": "GitHub 的 Spec-Driven Development 工具包，通过 specify CLI 为多种 coding agent 初始化规格、计划、任务和实现工作流。",
-    "tags": ["规格", "工作流", "SDD"],
+    "tags": [
+      "规格",
+      "工作流",
+      "SDD"
+    ],
     "url": "https://github.com/github/spec-kit",
     "featured": 5
   },
@@ -59,10 +108,37 @@
     "owner": "imochen",
     "repo": "provider-image",
     "type": "Skill",
-    "surfaces": ["Codex Skill", "CLI", "Installer"],
+    "surfaces": [
+      "Codex Skill",
+      "CLI",
+      "Installer"
+    ],
     "description": "Codex 图片生成 skill，复用本机 ~/.codex 中配置的 OpenAI-compatible provider，支持文生图、参考图和 Responses 图片工具路径。",
-    "tags": ["图片", "Codex", "Provider"],
+    "tags": [
+      "图片",
+      "Codex",
+      "Provider"
+    ],
     "url": "https://github.com/imochen/provider-image",
     "featured": 6
+  },
+  {
+    "name": "Context7",
+    "owner": "upstash",
+    "repo": "context7",
+    "type": "MCP Server",
+    "surfaces": [
+      "MCP Server",
+      "CLI",
+      "Skill"
+    ],
+    "description": "Context7 提供最新的代码文档和示例，集成于 LLM 和 AI 代码编辑器中。",
+    "tags": [
+      "代码文档",
+      "MCP",
+      "AI辅助编程"
+    ],
+    "url": "https://github.com/upstash/context7",
+    "featured": 7
   }
 ]
