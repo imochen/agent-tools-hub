@@ -1,53 +1,61 @@
 # Agent Tools Hub
 
-A curated directory of skills, MCP servers, plugins, workflows, and other tools for AI coding agents.
+Agent Tools Hub 是一个面向 AI coding agent 的工具导航站，收录 Skills、MCP Servers、Plugins、Workflows、CLI 工具和其他开发辅助项目。
 
-The site is intentionally static: tool metadata lives in `data/skills.json`, cards are rendered in the browser, GitHub stars are loaded client-side, and the project can be deployed directly to Cloudflare Pages.
+项目保持静态化：工具数据放在 `data/skills.json`，页面在浏览器中渲染卡片，GitHub stars 在客户端加载，可直接部署到 Cloudflare Pages。
 
-## Features
+## 功能
 
-- Static HTML/CSS/JavaScript, no build step required
-- Type filters for Skill, MCP Server, Plugin, Workflow, and more
-- Tag filters with compact Chinese labels
-- GitHub star badges and star-based sorting
-- Optional Cloudflare Pages Function for future submissions
-- Contributor-friendly JSON data model
+- 无构建步骤，只有 HTML/CSS/JavaScript
+- 支持按主类型筛选：Skill、MCP Server、Plugin、Workflow 等
+- 支持中文标签筛选
+- 支持 GitHub star 徽章和按 star 排序
+- 预留 Cloudflare Pages Functions 提交接口
+- 使用简单 JSON 数据模型，方便贡献和维护
 
-## Local Preview
+## 本地预览
 
-From the project root:
+在项目根目录运行：
 
 ```bash
 python3 -m http.server 4322
 ```
 
-Open:
+打开：
 
 ```text
 http://127.0.0.1:4322/
 ```
 
-Do not use `file://` for normal development. The page loads `data/skills.json` with `fetch`, which works reliably through a local server and matches Cloudflare Pages behavior.
+不要用 `file://` 作为常规开发方式。页面通过 `fetch` 加载 `data/skills.json`，使用本地静态服务更接近 Cloudflare Pages 的运行环境。
 
-## Deploy To Cloudflare Pages
+## 部署到 Cloudflare Pages
 
-Use the repository root as the Pages project root.
+在 Cloudflare Pages 中选择该仓库，使用仓库根目录作为项目根目录。
 
-- Build command: leave empty
-- Build output directory: `/`
+- Framework preset：`None`
+- Build command：留空，或填写 `npm run validate`
+- Build output directory：`/`
+- Production branch：`main`
 
-The optional submission endpoint is in `functions/api/submit.js`. To enable GitHub Issue submissions, configure these Cloudflare Pages environment variables:
+连接 GitHub 后：
 
-- `GITHUB_TOKEN`: a token allowed to create issues
-- `GITHUB_REPO`: target repository, for example `owner/agent-tools-hub`
+- push 到 `main` 会自动发布正式环境
+- PR 会自动生成 Preview Deployment
+- PR 合并后 Cloudflare Pages 会自动发布最新版本
 
-The submission UI is currently hidden in `index.html`.
+项目预留了提交接口：`functions/api/submit.js`。如果未来要启用“用户提交工具后自动创建 GitHub Issue”，需要在 Cloudflare Pages 配置环境变量：
 
-## Add A Tool
+- `GITHUB_TOKEN`：允许创建 issue 的 GitHub token
+- `GITHUB_REPO`：目标仓库，例如 `owner/agent-tools-hub`
 
-Edit `data/skills.json`.
+当前页面里的提交入口是隐藏状态。
 
-Each entry uses this shape:
+## 新增工具
+
+编辑 `data/skills.json`。
+
+条目格式：
 
 ```json
 {
@@ -63,25 +71,32 @@ Each entry uses this shape:
 }
 ```
 
-Guidelines:
+维护规则：
 
-- Analyze the repository before adding it. Do not classify only from the name.
-- Use one primary `type`.
-- Use `surfaces` for mixed forms such as Skill, MCP Server, Plugin, CLI, Hooks, or Agent Instructions.
-- Write `description` in Chinese, one sentence.
-- Use exactly three tags when possible.
-- Set `featured` to the current maximum plus one.
+- 新增前先分析仓库，不要只根据仓库名分类。
+- `type` 只放一个主类型。
+- 混合形态写进 `surfaces`，例如 Skill、MCP Server、Plugin、CLI、Hooks、Agent Instructions。
+- `description` 使用中文，一句话即可。
+- `tags` 尽量固定 3 个。
+- `featured` 使用当前最大值加 1。
 
-Detailed maintainer instructions live in `AGENTS.md`.
+更详细的维护规则见 `AGENTS.md`。
 
-## Validate
+## 校验
+
+```bash
+npm run validate
+```
+
+等价于：
 
 ```bash
 python3 -m json.tool data/skills.json
 node --check assets/app.js
+node scripts/validate.mjs
 ```
 
-## Project Structure
+## 目录结构
 
 ```text
 .
@@ -93,9 +108,11 @@ node --check assets/app.js
 │   └── skills.json
 ├── functions/
 │   └── api/submit.js
+├── scripts/
+│   └── validate.mjs
 └── AGENTS.md
 ```
 
-## License
+## 许可证
 
 MIT
