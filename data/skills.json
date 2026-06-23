@@ -140,5 +140,22 @@
     ],
     "url": "https://github.com/upstash/context7",
     "featured": 7
+  },
+  {
+    "name": "zu-article-image-skill",
+    "owner": "wwenj",
+    "repo": "zu-article-image-skill",
+    "type": "Skill",
+    "surfaces": [
+      "Skill"
+    ],
+    "description": "为 Markdown 文章自动生成并插入语义配图的技能。",
+    "tags": [
+      "Markdown",
+      "配图",
+      "AI"
+    ],
+    "url": "https://github.com/wwenj/zu-article-image-skill",
+    "featured": 8
   }
 ]
