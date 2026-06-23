@@ -1,4 +1,13 @@
-# Agent Tools Hub
+<h1>
+  <img src="assets/logo.svg" alt="Agent Tools Hub" width="32" height="32" align="absmiddle">
+  Agent Tools Hub
+</h1>
+
+[![Validate](https://github.com/imochen/agent-tools-hub/actions/workflows/validate.yml/badge.svg)](https://github.com/imochen/agent-tools-hub/actions/workflows/validate.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Static Site](https://img.shields.io/badge/site-static-2563eb.svg)](index.html)
+[![Deploy: Cloudflare Pages](https://img.shields.io/badge/deploy-Cloudflare%20Pages-f38020.svg)](docs/deployment.md)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 Agent Tools Hub 是一个面向 AI coding agent 的工具导航站，收录 Skills、MCP Servers、Plugins、Workflows、CLI 工具和其他开发辅助项目。
 
