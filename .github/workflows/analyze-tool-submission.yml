@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   analyze:
-    if: contains(github.event.issue.labels.*.name, 'tool-submission')
+    if: contains(github.event.issue.labels.*.name, 'tool-submission') || startsWith(github.event.issue.title, 'Add tool:') || contains(github.event.issue.body, '### GitHub URL')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

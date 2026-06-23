@@ -42,6 +42,8 @@ https://github.com/imochen/agent-tools-hub/issues/new?template=tool-submission.y
 
 仓库还包含一个自动分析 workflow：带有 `tool-submission` 标签的 issue 会触发 GitHub Actions，读取 issue 表单内容，分析对应仓库，修改 `data/skills.json` 并自动创建候选 PR。维护者仍需要人工审核后合并。
 
+如果仓库还没有 `tool-submission` 标签，GitHub 可能不会自动给新 issue 打标。workflow 也会识别工具提交模板里的标题和字段，但建议维护者在仓库中创建 `tool-submission` 和 `automated` 两个标签。
+
 ## 新增工具
 
 编辑 `data/skills.json`。
