@@ -157,5 +157,22 @@
     ],
     "url": "https://github.com/wwenj/zu-article-image-skill",
     "featured": 8
+  },
+  {
+    "name": "Ian Xiaohei Illustrations",
+    "owner": "helloianneo",
+    "repo": "ian-xiaohei-illustrations",
+    "type": "Skill",
+    "surfaces": [
+      "Skill"
+    ],
+    "description": "为中文文章生成独特风格的手绘正文配图。",
+    "tags": [
+      "中文配图",
+      "手绘风格",
+      "AI生成"
+    ],
+    "url": "https://github.com/helloianneo/ian-xiaohei-illustrations",
+    "featured": 9
   }
 ]
