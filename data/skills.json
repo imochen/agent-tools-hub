@@ -191,5 +191,24 @@
     ],
     "url": "https://github.com/jnMetaCode/agency-agents-zh",
     "featured": 10
+  },
+  {
+    "name": "Open Design",
+    "owner": "nexu-io",
+    "repo": "open-design",
+    "type": "Skill",
+    "surfaces": [
+      "Skill",
+      "MCP Server",
+      "CLI"
+    ],
+    "description": "本地优先的开源设计工具，支持多种设计系统和编码代理，生成多平台原型与多媒体输出。",
+    "tags": [
+      "设计工具",
+      "本地优先",
+      "多平台"
+    ],
+    "url": "https://github.com/nexu-io/open-design",
+    "featured": 11
   }
 ]
