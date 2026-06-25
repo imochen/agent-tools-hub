@@ -174,5 +174,22 @@
     ],
     "url": "https://github.com/helloianneo/ian-xiaohei-illustrations",
     "featured": 9
+  },
+  {
+    "name": "agency-agents 中文版",
+    "owner": "jnMetaCode",
+    "repo": "agency-agents-zh",
+    "type": "Skill",
+    "surfaces": [
+      "Skill"
+    ],
+    "description": "包含266个覆盖多行业的即插即用AI专家角色，支持多种AI编程工具，具备独立人设和专业流程。",
+    "tags": [
+      "AI智能体",
+      "多行业",
+      "中文"
+    ],
+    "url": "https://github.com/jnMetaCode/agency-agents-zh",
+    "featured": 10
   }
 ]
