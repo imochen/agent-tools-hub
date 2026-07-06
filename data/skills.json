@@ -210,5 +210,26 @@
     ],
     "url": "https://github.com/nexu-io/open-design",
     "featured": 11
+  },
+  {
+    "name": "Agent Skills",
+    "owner": "addyosmani",
+    "repo": "agent-skills",
+    "type": "Skill",
+    "surfaces": [
+      "Skill",
+      "Plugin",
+      "Agent Instructions",
+      "CLI",
+      "Workflow"
+    ],
+    "description": "涵盖软件开发全生命周期的AI编码代理工程技能集合。",
+    "tags": [
+      "软件开发",
+      "AI代理",
+      "技能"
+    ],
+    "url": "https://github.com/addyosmani/agent-skills",
+    "featured": 12
   }
 ]
