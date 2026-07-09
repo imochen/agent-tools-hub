@@ -231,5 +231,25 @@
     ],
     "url": "https://github.com/addyosmani/agent-skills",
     "featured": 12
+  },
+  {
+    "name": "Xquik",
+    "owner": "Xquik-dev",
+    "repo": "x-twitter-scraper",
+    "type": "MCP Server",
+    "surfaces": [
+      "MCP Server",
+      "REST API",
+      "Webhooks",
+      "SDKs"
+    ],
+    "description": "面向 agent 的 X/Twitter 数据与自动化平台，提供 MCP、REST API、webhooks 和 SDK 集成。",
+    "tags": [
+      "社交数据",
+      "MCP",
+      "自动化"
+    ],
+    "url": "https://github.com/Xquik-dev/x-twitter-scraper",
+    "featured": 13
   }
 ]

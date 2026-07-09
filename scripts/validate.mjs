@@ -17,7 +17,9 @@ if (!Array.isArray(entries)) {
   throw new Error("data/skills.json must contain an array");
 }
 
-const seen = new Set();
+const names = new Set();
+const repositories = new Set();
+const urls = new Set();
 const featured = new Set();
 
 for (const [index, entry] of entries.entries()) {
@@ -45,11 +47,22 @@ for (const [index, entry] of entries.entries()) {
     throw new Error(`${label}: url must be ${expectedUrl}`);
   }
 
-  const key = `${entry.owner}/${entry.repo}`;
-  if (seen.has(key)) {
-    throw new Error(`${label}: duplicate repository ${key}`);
+  const nameKey = entry.name.toLowerCase();
+  if (names.has(nameKey)) {
+    throw new Error(`${label}: duplicate name ${entry.name}`);
   }
-  seen.add(key);
+  names.add(nameKey);
+
+  const repositoryKey = `${entry.owner}/${entry.repo}`;
+  if (repositories.has(repositoryKey)) {
+    throw new Error(`${label}: duplicate repository ${repositoryKey}`);
+  }
+  repositories.add(repositoryKey);
+
+  if (urls.has(entry.url)) {
+    throw new Error(`${label}: duplicate url ${entry.url}`);
+  }
+  urls.add(entry.url);
 
   if (featured.has(entry.featured)) {
     throw new Error(`${label}: duplicate featured value ${entry.featured}`);
