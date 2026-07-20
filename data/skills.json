@@ -231,5 +231,25 @@
     ],
     "url": "https://github.com/addyosmani/agent-skills",
     "featured": 12
+  },
+  {
+    "name": "Better Agent",
+    "owner": "ofekron",
+    "repo": "better-agent",
+    "type": "Dev Tool",
+    "surfaces": [
+      "Web",
+      "Desktop",
+      "CLI",
+      "SDK"
+    ],
+    "description": "本地AI编码智能体工作区，支持多智能体并行运行和持久化管理。",
+    "tags": [
+      "智能体管理",
+      "多模型并行",
+      "本地工作区"
+    ],
+    "url": "https://github.com/ofekron/better-agent",
+    "featured": 13
   }
 ]
