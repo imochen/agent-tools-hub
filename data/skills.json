@@ -231,5 +231,23 @@
     ],
     "url": "https://github.com/addyosmani/agent-skills",
     "featured": 12
+  },
+  {
+    "name": "Agent QA",
+    "owner": "vostride",
+    "repo": "agent-qa",
+    "type": "Dev Tool",
+    "surfaces": [
+      "CLI",
+      "MCP Server"
+    ],
+    "description": "面向 AI agent 的 QA 工具包，可用自然语言编排 API、CLI、浏览器和移动端测试计划，并通过 CLI 或 MCP stdio 接入。",
+    "tags": [
+      "QA",
+      "测试",
+      "MCP"
+    ],
+    "url": "https://github.com/vostride/agent-qa",
+    "featured": 13
   }
 ]
