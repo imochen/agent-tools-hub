@@ -231,5 +231,24 @@
     ],
     "url": "https://github.com/addyosmani/agent-skills",
     "featured": 12
+  },
+  {
+    "name": "Hyperconsciousness",
+    "owner": "louis030195",
+    "repo": "hyperconsciousness",
+    "type": "MCP Server",
+    "surfaces": [
+      "MCP Server",
+      "CLI",
+      "Skill"
+    ],
+    "description": "开发者 Alpha 阶段的 Rust 知识存储，通过 CLI 和 MCP 为 AI agent 提供加密、只追加的持久记录与有范围和期限的访问授权。",
+    "tags": [
+      "记忆",
+      "MCP",
+      "CLI"
+    ],
+    "url": "https://github.com/louis030195/hyperconsciousness",
+    "featured": 13
   }
 ]
