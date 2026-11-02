@@ -231,5 +231,23 @@
     ],
     "url": "https://github.com/addyosmani/agent-skills",
     "featured": 12
+  },
+  {
+    "name": "Kilobat CLI",
+    "owner": "seifip",
+    "repo": "kilobat-cli",
+    "type": "MCP Server",
+    "surfaces": [
+      "MCP Server",
+      "CLI"
+    ],
+    "description": "适用于 macOS 的本地网络诊断工具，可通过 MCP 查看连接状态、排查 DNS 和 Wi-Fi 问题。",
+    "tags": [
+      "网络",
+      "诊断",
+      "MCP"
+    ],
+    "url": "https://github.com/seifip/kilobat-cli",
+    "featured": 13
   }
 ]
